@@ -12,9 +12,30 @@ export const Dashboard = () => {
     color: "#FF5733",
   });
   const [tasks, setTasks] = useState([
-    { id: 1, text: "Create User Stories", start_date: "2023-07-01", duration: 5, progress: 0.6, color: "#FF5733" },
-    { id: 2, text: "Create User Flows", start_date: "2023-07-07", duration: 4, progress: 0.4, color: "#3498DB" },
-    { id: 3, text: "Create Wireframes", start_date: "2023-07-12", duration: 3, progress: 0.7, color: "#8E44AD" },
+    {
+      id: 1,
+      text: "Create User Stories",
+      start_date: "2023-07-01",
+      duration: 5,
+      progress: 0.6,
+      color: "#FF5733",
+    },
+    {
+      id: 2,
+      text: "Create User Flows",
+      start_date: "2023-07-07",
+      duration: 4,
+      progress: 0.4,
+      color: "#3498DB",
+    },
+    {
+      id: 3,
+      text: "Create Wireframes",
+      start_date: "2023-07-12",
+      duration: 3,
+      progress: 0.7,
+      color: "#8E44AD",
+    },
   ]);
 
   const toggleDropdown = () => setIsDropdownOpen(!isDropdownOpen);
@@ -43,7 +64,7 @@ export const Dashboard = () => {
       {/* Navbar */}
       <Navbar />
       {/* Dashboard Content */}
-      <div className="w-full flex items-center justify-between px-6 pt-2 bg-white shadow-sm">
+      <div className="w-full flex items-center justify-between px-6 pt-2 bg-white">
         {/* Task Actions */}
         <div className="flex items-center space-x-4">
           <button
@@ -86,16 +107,31 @@ export const Dashboard = () => {
               </div>
             )}
           </div>
-        </div>
 
-        <div className="flex items-center space-x-2">
-          <span className="text-gray-500">Auto Schedule Adjustment</span>
-          <label className="relative inline-flex items-center cursor-pointer">
-            <input type="checkbox" className="sr-only peer" />
-            <div className="w-10 h-6 bg-gray-200 rounded-full peer peer-checked:bg-blue-500"></div>
-            <div className="w-4 h-4 bg-white rounded-full absolute left-1 top-1 peer-checked:translate-x-4 transition"></div>
-          </label>
+          <div className="flex items-center space-x-2">
+            <span className="text-gray-500">Auto Schedule Adjustment</span>
+            <label className="relative inline-flex items-center cursor-pointer">
+              <input type="checkbox" className="sr-only peer" />
+              <div className="w-10 h-6 bg-gray-200 rounded-full peer peer-checked:bg-blue-500"></div>
+              <div className="w-4 h-4 bg-white rounded-full absolute left-1 top-1 peer-checked:translate-x-4 transition"></div>
+            </label>
+          </div>
         </div>
+        <div className="p-6">
+              {/* Search Input */}
+              <div className="relative w-full max-w-sm">
+                <input
+                  type="text"
+                  placeholder="Search tasks..."
+                  className="w-full px-4 py-2 pl-10 border border-blue-500 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-300"
+                />
+                <img
+                  src="https://img.icons8.com/ios-filled/50/000000/search--v1.png"
+                  alt="Search Icon"
+                  className="absolute left-3 top-2.5 h-5 w-5 text-gray-400"
+                />
+              </div>
+            </div>
       </div>
 
       {/* New Task Modal */}
@@ -126,7 +162,9 @@ export const Dashboard = () => {
                 />
               </div>
               <div className="mb-4">
-                <label className="block font-medium mb-1">Duration (days)</label>
+                <label className="block font-medium mb-1">
+                  Duration (days)
+                </label>
                 <input
                   type="number"
                   name="duration"
@@ -164,6 +202,7 @@ export const Dashboard = () => {
           </div>
         </div>
       )}
+           
 
       <Taskbar tasks={tasks} />
     </div>

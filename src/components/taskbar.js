@@ -29,7 +29,7 @@ const Taskbar = () => {
     });
   }, []);
 
-  return <div ref={ganttContainer} style={{ width: '100%', height: '500px' }} />;
+  return <div className='mt-3' ref={ganttContainer} style={{ width: '100%', height: '500px' }} />;
 };
 
 export default Taskbar;
